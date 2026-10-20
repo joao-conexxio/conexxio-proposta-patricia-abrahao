@@ -1,0 +1,221 @@
+{
+  "slug": "patricia-abrahao",
+  "negocio": {
+    "nome": "Instituto Patrícia Abrahão",
+    "whatsapp": "5561984370165",
+    "unidades": [
+      {
+        "bairro": "Asa Sul · Brasília",
+        "endereco": "SAUS Quadra 4, Bloco A · Ed. Victoria Office Tower, salas 337 a 339",
+        "telefone": "(61) 98437-0165",
+        "horario": "Atendimento com hora marcada"
+      }
+    ]
+  },
+  "marca": {
+    "brand": "#8A4547",
+    "brand2": "#6B3335",
+    "ink": "#2B1C1B",
+    "bg": "#FBF5F1",
+    "radius": "12px",
+    "registro": "editorial",
+    "fontDisplay": "Cormorant Garamond",
+    "fontBody": "Jost",
+    "tomHero": "claro",
+    "tomCorpo": "claro"
+  },
+  "motivo": "camadas",
+  "secoes": [
+    {
+      "id": "header",
+      "variant": "sticky-cta",
+      "data": {
+        "links": [
+          { "texto": "O protocolo", "href": "#tratamentos" },
+          { "texto": "Como funciona", "href": "#como-funciona" },
+          { "texto": "Dúvidas", "href": "#faq" },
+          { "texto": "Onde fica", "href": "#unidades" }
+        ]
+      }
+    },
+    {
+      "id": "hero",
+      "variant": "split-motivo",
+      "data": {
+        "eyebrow": "Estética integrativa",
+        "h1": "Contorno de abdômen sem cirurgia",
+        "lead": "Na Asa Sul, gordura localizada, flacidez e lipedema são tratados com o CrioEfficace, o protocolo do instituto: a estratégia sai da avaliação do seu corpo e é acompanhada até o resultado aparecer.",
+        "cta": "Agendar avaliação",
+        "ctaSecundario": "Conhecer o protocolo",
+        "ctaSecundarioHref": "#tratamentos",
+        "selo": "CrioEfficace · Asa Sul · Brasília · DF · ",
+        "arte": "grao"
+      }
+    },
+    {
+      "id": "fita",
+      "data": {
+        "itens": [
+          "Contorno abdominal",
+          "Gordura localizada",
+          "Flacidez",
+          "Qualidade da pele",
+          "Lipedema",
+          "CrioEfficace"
+        ]
+      }
+    },
+    {
+      "id": "manifesto",
+      "variant": "faixa",
+      "data": {
+        "eyebrow": "Quem cuida",
+        "citacao": "Dois abdômens nunca pedem o mesmo plano.",
+        "texto": [
+          "A Patrícia é dona do instituto e continua atendendo. Antes de qualquer sessão, ela olha o conjunto: como a pele está, quanto ela cedeu, onde a gordura se acumula e qual contorno faz sentido para aquele corpo.",
+          "O método já atravessou o oceano. Em 2024 e em 2025 ela atendeu durante a semana de moda de Paris, e hoje forma outras profissionais em turmas de mentoria em Portugal."
+        ]
+      }
+    },
+    {
+      "id": "tratamentos",
+      "variant": "pilha",
+      "data": {
+        "titulo": "O que o CrioEfficace trata",
+        "lead": "Não é a criolipólise de uma sessão só. É um protocolo do próprio instituto, montado a partir da avaliação e ajustado ao longo do caminho.",
+        "itens": [
+          {
+            "nome": "Contorno abdominal",
+            "descricao": "O carro-chefe da casa. A estratégia mira o desenho da cintura e do abdômen, não só a medida na fita."
+          },
+          {
+            "nome": "Gordura localizada",
+            "descricao": "Para aquela gordura que fica no mesmo lugar mesmo com treino e alimentação em dia: abdômen, flancos e costas."
+          },
+          {
+            "nome": "Flacidez e qualidade da pele",
+            "descricao": "Reduzir volume sem cuidar da pele deixa o resultado pela metade. A firmeza entra no plano desde a primeira avaliação."
+          },
+          {
+            "nome": "Lipedema",
+            "descricao": "Cuidado estético para quem convive com lipedema, conduzido por quem se especializou no tema. Caminha junto do acompanhamento médico, sem substituí-lo."
+          }
+        ]
+      }
+    },
+    {
+      "id": "numeros",
+      "variant": "gigante",
+      "data": {
+        "titulo": "Trajetória",
+        "itens": [
+          {
+            "valor": "2",
+            "rotulo": "temporadas atendendo na Paris Fashion Week, em 2024 e 2025",
+            "contar": 2
+          },
+          {
+            "valor": "10 mil",
+            "rotulo": "pessoas acompanham os bastidores do instituto no Instagram",
+            "contar": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "passos",
+      "variant": "timeline",
+      "data": {
+        "titulo": "Como funciona",
+        "lead": "Resultado de contorno é gradual. Você sabe o que esperar de cada etapa antes de começar.",
+        "itens": [
+          {
+            "titulo": "Conversa pelo WhatsApp",
+            "texto": "Você conta o que incomoda e tira as primeiras dúvidas. A avaliação é marcada por ali."
+          },
+          {
+            "titulo": "Avaliação do corpo",
+            "texto": "Qualidade da pele, grau de flacidez, contorno e distribuição da gordura. É daqui que sai a estratégia."
+          },
+          {
+            "titulo": "Plano por etapas",
+            "texto": "O protocolo é montado para o seu caso, com a ordem das sessões e o tempo realista até o resultado."
+          },
+          {
+            "titulo": "Acompanhamento",
+            "texto": "A evolução é revista ao longo do processo. Treino e alimentação contam, e entram na conversa."
+          }
+        ]
+      }
+    },
+    {
+      "id": "corpo-clinico",
+      "variant": "lista",
+      "data": {
+        "titulo": "Quem atende",
+        "itens": [
+          {
+            "nome": "Patrícia Abrahão",
+            "especialidade": "Estética integrativa · contorno corporal e lipedema · mentora de profissionais"
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq",
+      "variant": "acordeao",
+      "data": {
+        "titulo": "Dúvidas frequentes",
+        "itens": [
+          {
+            "p": "CrioEfficace é a mesma coisa que criolipólise?",
+            "r": "Não. É um protocolo próprio do instituto, que parte da avaliação da pele, da flacidez e de onde a gordura se concentra. A combinação e o número de sessões mudam de pessoa para pessoa."
+          },
+          {
+            "p": "Precisa de cirurgia ou agulha?",
+            "r": "Não. O protocolo é não invasivo: você sai da sessão e segue o seu dia."
+          },
+          {
+            "p": "Em quanto tempo aparece o resultado?",
+            "r": "O processo é gradual e depende do seu corpo e do plano montado. A previsão do seu caso sai na avaliação."
+          },
+          {
+            "p": "Quem tem lipedema pode fazer?",
+            "r": "Pode, e é uma das especialidades da Patrícia. O cuidado estético complementa o acompanhamento médico do lipedema, não o substitui."
+          },
+          {
+            "p": "Preciso mudar treino e alimentação?",
+            "r": "Ajuda muito. Os melhores resultados do instituto vêm de quem combina o protocolo com exercício regular e alimentação cuidada."
+          }
+        ]
+      }
+    },
+    {
+      "id": "unidades",
+      "variant": "unica",
+      "data": {
+        "titulo": "Onde fica"
+      }
+    },
+    {
+      "id": "cta-final",
+      "variant": "bloco-cheio",
+      "data": {
+        "h2": "Comece pela avaliação",
+        "lead": "Conte pelo WhatsApp o que mais te incomoda: abdômen, flacidez ou lipedema. A avaliação define por onde começar.",
+        "cta": "Conversar no WhatsApp"
+      }
+    },
+    {
+      "id": "footer",
+      "variant": "completo",
+      "data": {
+        "links": [
+          { "texto": "Instagram", "href": "https://www.instagram.com/institutopatriciaabrahao/" },
+          { "texto": "WhatsApp", "href": "https://wa.me/5561984370165" }
+        ],
+        "aviso": "Resultados variam de pessoa para pessoa e dependem de avaliação individual. O conteúdo desta página é informativo e não substitui consulta médica."
+      }
+    }
+  ]
+}
