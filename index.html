@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="pt-BR" class="registro-editorial">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Instituto Patrícia Abrahão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Jost:wght@400;500;600&amp;display=swap">
+<style>/* Padrões neutros do kit. A proposta sobrescreve pelo bloco injetado
+   pelo build.mjs, que vem depois deste arquivo no CSS final. */
+:root{
+  --brand:#0a7d6b;
+  --brand-2:#064e42;
+  --ink:#111634;
+  /* Derivados de --ink, não fixos: a marca define o ink e todo o texto
+     secundário e as réguas acompanham. Fixá-los prendia a página inteira ao
+     azul do padrão clínico, mesmo numa paleta quente. Mesmas proporções que
+     os valores literais que estavam aqui, e o mesmo color-mix já usado pela
+     família --on-dark-*. */
+  --ink-soft:color-mix(in srgb, var(--ink) 76%, var(--bg));
+  --ink-dim:color-mix(in srgb, var(--ink) 52%, var(--bg));
+  --bg:#F6F7F9;
+  --bg-2:#FFFFFF;
+  --line:color-mix(in srgb, var(--ink) 14%, transparent);
+  --line-strong:color-mix(in srgb, var(--ink) 26%, transparent);
+  --pulse:#DC5648;
+
+  --f-display:Georgia,'Times New Roman',serif;
+  --f-body:-apple-system,system-ui,sans-serif;
+
+  --t-hero:clamp(2.65rem,1.6rem + 4.6vw,5.1rem);
+  --t-h2:clamp(1.85rem,1.3rem + 2.2vw,3rem);
+  --t-h3:clamp(1.15rem,1.05rem + .4vw,1.4rem);
+  --t-lead:clamp(1.03rem,.98rem + .35vw,1.2rem);
+  --t-sm:.94rem;
+  --t-label:.71rem;
+
+  --wrap:1180px;
+  --wrap-narrow:760px;
+  --gutter:clamp(1.15rem,4vw,2.5rem);
+  --sp-1:.5rem; --sp-2:.85rem; --sp-3:1.4rem; --sp-4:2.2rem; --sp-5:3.4rem;
+  --sp-section:clamp(4.5rem,3.2rem + 5.5vw,7.5rem);
+
+  --r:6px;
+  --r-lg:14px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* Superfícies escuras: qualquer seção pode se comprometer com um campo
+     saturado sem que a proposta precise declarar uma cor a mais. --ink já
+     é obrigatório e, por definição, escuro o bastante para texto sobre
+     --bg — então serve de --surface-dark em qualquer paleta de marca.
+     Tudo aqui deriva dos mesmos seis tokens de marca via color-mix. */
+  --surface-dark:var(--ink);
+  --surface-dark-2:color-mix(in srgb, var(--bg-2) 8%, var(--ink));
+  --on-dark:var(--bg-2);
+  --on-dark-soft:color-mix(in srgb, var(--bg-2) 74%, transparent);
+  --on-dark-dim:color-mix(in srgb, var(--bg-2) 52%, transparent);
+  --on-dark-line:color-mix(in srgb, var(--bg-2) 16%, transparent);
+  --on-dark-line-strong:color-mix(in srgb, var(--bg-2) 30%, transparent);
+}
+
+/* Ritmo por registro. O :root acima traz os valores clínicos como padrão —
+   estes blocos só os substituem. Nenhuma cor aqui: registro é ritmo, não
+   paleta; a paleta continua vindo inteira de marca.*. */
+:root{
+  --lh-display:1.08;
+  --lh-body:1.6;
+  --lh-h3:1.25;
+  --eyebrow-track:.16em;
+}
+.registro-editorial{
+  --t-hero:clamp(3rem,2rem + 6vw,6.5rem);
+  --t-h2:clamp(2.1rem,1.5rem + 3vw,3.8rem);
+  --lh-display:1.02;
+  --lh-body:1.75;
+  --lh-h3:1.18;
+  --eyebrow-track:.34em;
+  --wrap-narrow:640px;
+  --sp-section:clamp(6.5rem,4.5rem + 8vw,12rem);
+}
+
+/* Página escura: cliente cujo site é escuro. A marca chega com --bg escuro e
+   --ink claro (o extrator lê assim), então os tokens que assumiam "bg claro,
+   ink escuro" se invertem aqui: --bg-2 deixa de ser o branco das superfícies
+   e vira um degrau acima do fundo; superfície escura vira um degrau abaixo;
+   o texto sobre ela continua sendo o ink. Nenhuma cor nova a declarar. */
+.pagina-escura{
+  --bg-2:color-mix(in srgb, var(--bg) 90%, var(--ink));
+  --surface-dark:color-mix(in srgb, var(--bg) 70%, #000);
+  --surface-dark-2:color-mix(in srgb, var(--bg) 84%, var(--ink));
+  --on-dark:var(--ink);
+  --on-dark-soft:color-mix(in srgb, var(--ink) 74%, transparent);
+  --on-dark-dim:color-mix(in srgb, var(--ink) 52%, transparent);
+  --on-dark-line:color-mix(in srgb, var(--ink) 16%, transparent);
+  --on-dark-line-strong:color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--f-body);font-size:1rem;line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:3px}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.wrap--narrow{max-width:var(--wrap-narrow)}
+.section{padding-block:var(--sp-section)}
+.section--tight{padding-block:var(--sp-5)}
+.grid{display:grid;gap:var(--sp-3)}
+.grid--2{grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.grid--3{grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.stack>*+*{margin-top:var(--sp-2)}
+.cluster{display:flex;flex-wrap:wrap;gap:var(--sp-2);align-items:center}
+
+/* Divisor entre seções, genérico para qualquer motivo: um <div class="rule">
+   envolvendo o <svg> de uma escala "rule". Cada motivo só estiliza o miolo
+   (o <svg>/<path> em si) no seu próprio motif.css. */
+.rule{
+  position:relative;height:1px;background:var(--line);
+  max-width:var(--wrap);margin-inline:auto;
+}
+.rule svg{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:104px;height:46px;
+  background:var(--bg);padding-inline:10px;
+}
+
+.js [data-reveal]{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .8s var(--ease) var(--d,0ms),transform .8s var(--ease) var(--d,0ms);
+}
+.js [data-reveal].is-in{opacity:1;transform:none}
+[data-tilt]{transition:transform .35s var(--ease);will-change:transform}
+[data-glow]{position:relative;isolation:isolate}
+[data-glow]::before{
+  content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  border-radius:inherit;opacity:.5;
+  background:radial-gradient(
+    18rem circle at var(--gx,50%) var(--gy,50%),
+    color-mix(in srgb, var(--brand) 22%, transparent), transparent 65%);
+}
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  [data-tilt]{transition:none}
+}
+
+/* Título que sobe palavra por palavra (motion.js quebra em .w). */
+.js [data-palavras] .w{
+  display:inline-block;opacity:0;transform:translateY(.45em);
+  animation:palavra-sobe .9s var(--ease) forwards;
+  animation-delay:calc(var(--d,0ms) + var(--i,0) * 70ms);
+}
+@keyframes palavra-sobe{to{opacity:1;transform:none}}
+
+/* Texto que acende com a rolagem (motion.js quebra em .p e liga .on). */
+[data-acende] .p{opacity:.16;transition:opacity .35s var(--ease)}
+[data-acende] .p.on{opacity:1}
+
+/* Cartões que empilham: cada um gruda um degrau abaixo do anterior; o
+   motion.js encolhe o de baixo quando o próximo encosta. */
+[data-pilha]>*{
+  position:sticky;top:calc(4.5rem + var(--n,0) * .75rem);
+  transform-origin:top center;will-change:transform;
+}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:var(--lh-display);letter-spacing:-.02em}
+h1{font-size:var(--t-hero)}
+h2{font-size:var(--t-h2)}
+h3{font-size:var(--t-h3);line-height:var(--lh-h3)}
+.lead{font-size:var(--t-lead);color:var(--ink-soft);max-width:52ch;line-height:var(--lh-body)}
+.eyebrow{
+  font-size:var(--t-label);letter-spacing:var(--eyebrow-track);text-transform:uppercase;
+  color:var(--ink-dim);font-weight:600;
+}
+.small{font-size:var(--t-sm);color:var(--ink-soft)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.85rem 1.5rem;border-radius:var(--r);border:1px solid transparent;
+  background:var(--brand);color:var(--on-brand);
+  font-weight:600;text-decoration:none;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s var(--ease);
+}
+.btn:hover{background:var(--brand-2);transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--brand);border-color:var(--line-strong)}
+.btn--ghost:hover{background:var(--bg-2);color:var(--brand-2)}
+.chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.35rem .8rem;border-radius:999px;border:1px solid var(--line);
+  font-size:var(--t-sm);color:var(--ink-soft);background:var(--bg-2);
+}
+@media (prefers-reduced-motion:reduce){
+  .btn{transition:none}
+  .btn:hover{transform:none}
+}
+
+/* Barra de WhatsApp do celular. O build sempre emite; só existe abaixo de
+   48rem, e o motion.js decide quando ela sobe. */
+.barra-zap{
+  position:fixed;left:.75rem;right:.75rem;bottom:max(.75rem, env(safe-area-inset-bottom));z-index:20;
+  transform:translateY(160%);transition:transform .5s var(--ease);
+}
+.barra-zap.on{transform:none}
+.barra-zap .btn{
+  width:100%;justify-content:center;padding-block:1rem;
+  box-shadow:0 12px 30px -12px color-mix(in srgb, var(--ink) 55%, transparent);
+}
+@media (min-width:48.01rem){ .barra-zap{display:none} }
+@media (prefers-reduced-motion:reduce){ .barra-zap{transition:none} }
+
+/* Camadas de pele. Nenhuma cor literal: tudo deriva de --pulse e --brand. */
+.camadas{display:block;width:100%;height:auto;overflow:visible}
+.camadas path{
+  fill:color-mix(in srgb, var(--pulse) 16%, transparent);
+  stroke:color-mix(in srgb, var(--pulse) 42%, transparent);
+  stroke-width:1;
+  vector-effect:non-scaling-stroke;
+}
+.camadas path:nth-child(even){fill:color-mix(in srgb, var(--brand) 14%, transparent)}
+
+.camadas--hero{height:clamp(120px,20vw,240px)}
+.camadas--accent{width:72px;height:26px;display:inline-block;vertical-align:middle}
+
+/* Cada camada sobe com atraso próprio, de baixo para cima. */
+.js .camadas--anima path{
+  opacity:0;
+  transform:translateY(14px);
+  animation:camadas-sobe .9s var(--ease) forwards;
+  animation-delay:calc(var(--i,0) * 110ms + 250ms);
+}
+@keyframes camadas-sobe{to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion: reduce){
+  .js .camadas--anima path{opacity:1;transform:none;animation:none}
+}
+
+/* As quatro cores do fundo vivo, só de tokens de marca. Hero claro: fundo da
+   página com manchas claras da marca e do acento; hero escuro: superfície
+   escura com a marca saturada. --vivo-3 é a mancha que segue o dedo. */
+.hero{
+  --vivo-bg:var(--bg);
+  --vivo-1:color-mix(in srgb, var(--pulse) 50%, var(--bg-2));
+  --vivo-2:color-mix(in srgb, var(--brand) 36%, var(--bg-2));
+  --vivo-3:color-mix(in srgb, var(--pulse) 88%, var(--bg-2));
+}
+.hero--tom-escuro{
+  --vivo-bg:var(--surface-dark);
+  --vivo-1:var(--brand);
+  --vivo-2:color-mix(in srgb, var(--brand-2) 70%, var(--pulse));
+  --vivo-3:var(--pulse);
+}
+/* Fora do fluxo e sem eventos: o dedo que rola a página nunca é capturado
+   pelo canvas. Quem escuta o ponteiro é o próprio hero, em modo passivo. */
+.vivo{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;display:block;pointer-events:none;
+}
+
+.grao{position:absolute;inset:0;pointer-events:none;opacity:.055;mix-blend-mode:multiply}
+.grao--forte{opacity:.11}
+.grao svg{display:block;width:100%;height:100%}
+
+.hd{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd__in{display:flex;align-items:center;gap:var(--sp-3);min-height:4.25rem}
+.hd__marca{font-family:var(--f-display);font-size:1.15rem;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center}
+.hd__logo{max-height:2.4rem;width:auto}
+.hd__nav{display:none;gap:var(--sp-3);margin-left:auto;font-size:var(--t-sm)}
+.hd__nav a{text-decoration:none;color:var(--ink-soft)}
+.hd__nav a:hover{color:var(--brand)}
+.hd__cta{margin-left:auto;padding:.55rem 1.1rem}
+.hd__nav:not(:empty)~.hd__cta{margin-left:0}
+@media (min-width:56rem){.hd__nav{display:flex}}
+
+.hero{position:relative;padding-block:var(--sp-section) 0;overflow:hidden}
+.hero__in{position:relative;z-index:2;max-width:var(--wrap-narrow)}
+.hero--split-motivo .hero__in{max-width:var(--wrap)}
+.hero h1{margin-top:var(--sp-2)}
+.hero .lead{margin-top:var(--sp-3)}
+.hero__acoes{margin-top:var(--sp-4)}
+.hero__acoes .btn .ico{margin-right:-.2rem}
+
+.hero--full-bleed .hero__in{max-width:var(--wrap);text-align:center;margin-inline:auto}
+.hero--full-bleed .hero__acoes{justify-content:center}
+
+/* Campo escuro: o hero se compromete com um fundo saturado, derivado só
+   dos tokens de marca (ver --surface-dark em tokens.css). A opacidade
+   deixa o gradient-mesh, se houver, passar como um véu de cor por trás em
+   vez de ficar tapado — é isso que o faz ler como luminoso, não barrento. */
+.hero--tom-escuro{
+  background:color-mix(in srgb, var(--surface-dark) 80%, transparent);
+  color:var(--on-dark);
+}
+.hero--tom-escuro .lead{color:var(--on-dark-soft)}
+.hero--tom-escuro .eyebrow{color:var(--acento-escuro)}
+.hero--tom-escuro .btn{background:var(--pulse);color:var(--on-pulse)}
+.hero--tom-escuro .btn:hover{background:color-mix(in srgb, var(--pulse) 78%, var(--ink))}
+.hero--tom-escuro .btn--ghost{background:transparent;color:var(--on-dark);border-color:var(--on-dark-line-strong)}
+.hero--tom-escuro .btn--ghost:hover{background:var(--on-dark-line);color:var(--on-dark)}
+
+/* split-motivo de fato divide: conteúdo à esquerda, card de contato
+   opcional à direita. Empilha sozinho abaixo de 64rem porque o card é o
+   segundo item do grid — a ordem do DOM já resolve o mobile. */
+.hero__grid{display:grid;gap:var(--sp-5);align-items:start}
+.hero__conteudo{max-width:var(--wrap-narrow)}
+@media (min-width:64rem){
+  .hero__grid{grid-template-columns:minmax(0,1fr) minmax(18rem,23rem)}
+}
+
+.hero__card{
+  padding:var(--sp-4);border-radius:var(--r-lg);
+  background:var(--surface-dark-2);border:1px solid var(--on-dark-line);
+}
+.hero__card .eyebrow{color:var(--on-dark-dim)}
+.hero__card-titulo{font-family:var(--f-display);font-size:var(--t-h3);margin-top:var(--sp-1);color:var(--on-dark)}
+.hero__card-cta{width:100%;justify-content:center;margin-top:var(--sp-3)}
+.hero__card-lista{margin-top:var(--sp-3);padding-top:var(--sp-3);border-top:1px solid var(--on-dark-line)}
+.hero__card-linha{display:flex;justify-content:space-between;gap:var(--sp-2);font-size:var(--t-sm)}
+.hero__card-linha+.hero__card-linha{margin-top:.5rem}
+.hero__card-linha dt{color:var(--on-dark-dim)}
+.hero__card-linha dd{color:var(--on-dark);font-weight:600;text-align:right}
+
+/* Traçado do motivo: faixa em fluxo normal, em espaço que o próprio hero
+   reserva — nunca mais absoluta sobre o parágrafo e os botões. */
+.hero__arte{
+  position:relative;z-index:1;
+  margin-top:clamp(2.75rem,6vw,4.5rem);
+  padding-block:var(--sp-4);
+  opacity:.85;pointer-events:none;
+}
+.hero--full-bleed .hero__arte{
+  position:absolute;inset:0;z-index:1;display:grid;place-items:center;
+  margin:0;padding:0;opacity:.14;
+}
+
+/* Retrato opcional do hero (data.imagem). Divide a coluna lateral com o card
+   de contato; sem imagem, .hero__lado só contém o card e nada muda. */
+.hero__lado{display:grid;gap:var(--sp-3)}
+.hero__retrato{
+  margin:0;overflow:hidden;border-radius:var(--r-lg);
+  background:var(--bg-2);aspect-ratio:1/1;
+  box-shadow:0 18px 50px -22px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+.hero__retrato img{width:100%;height:100%;object-fit:cover;object-position:38% 28%;display:block}
+@media (min-width:64rem){ .hero__retrato{aspect-ratio:4/5} }
+
+/* Selo giratório (data.selo). */
+.hero__selo{
+  position:absolute;z-index:3;top:calc(var(--sp-section) * .55);right:var(--gutter);
+  width:6.5rem;height:6.5rem;pointer-events:none;
+  animation:selo-gira 22s linear infinite;
+}
+.hero__selo svg{width:100%;height:100%;overflow:visible}
+.hero__selo text{font-family:var(--f-body);font-size:8.6px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;fill:currentColor}
+.hero__selo-miolo{position:absolute;inset:0;display:grid;place-items:center;font-size:1.5rem;color:var(--pulse);animation:selo-gira 22s linear infinite reverse}
+@keyframes selo-gira{to{transform:rotate(360deg)}}
+@media (min-width:64rem){ .hero__selo{width:8.5rem;height:8.5rem} }
+@media (prefers-reduced-motion:reduce){ .hero__selo,.hero__selo-miolo{animation:none} }
+
+/* Fundo estático do hero: o que fica quando o wow do hero não pode rodar
+   (sem WebGL, cena do Spline que falhou). Mesmas cores, sem movimento. */
+.hero--estatico{
+  background:
+    radial-gradient(60% 50% at 85% 15%, color-mix(in srgb, var(--brand) 38%, transparent), transparent 70%),
+    radial-gradient(55% 45% at 10% 95%, color-mix(in srgb, var(--pulse) 26%, transparent), transparent 70%),
+    var(--bg);
+}
+.hero--estatico.hero--tom-escuro{
+  background:
+    radial-gradient(60% 50% at 85% 15%, color-mix(in srgb, var(--brand) 55%, transparent), transparent 70%),
+    radial-gradient(55% 45% at 10% 95%, color-mix(in srgb, var(--pulse) 30%, transparent), transparent 70%),
+    var(--surface-dark);
+}
+
+.fita{position:relative;z-index:2;overflow-x:clip;overflow-y:visible}
+.fita__faixa{background:var(--brand);color:var(--on-brand);padding-block:.9rem;overflow:hidden}
+.fita--inclinada{margin-block:-.6rem}
+.fita--inclinada .fita__faixa{transform:rotate(-2.5deg) scale(1.06)}
+.fita__trilho{display:flex;width:max-content;animation:fita-corre 32s linear infinite}
+.fita ul{display:flex;list-style:none;margin:0;padding:0}
+.fita li{
+  font-family:var(--f-display);font-size:clamp(1.35rem,1.1rem + 1vw,2rem);line-height:1;
+  white-space:nowrap;padding-inline:1.1rem;display:flex;align-items:center;gap:2.2rem;
+}
+.fita li::after{content:'✦';font-size:.6em;opacity:.7}
+@keyframes fita-corre{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){ .fita__trilho{animation:none} }
+
+.manif__in{max-width:var(--wrap-narrow)}
+.manif__citacao{margin:0 0 var(--sp-4);padding:0;border:0}
+.manif__citacao p{font-family:var(--f-display);font-size:var(--t-h2);line-height:var(--lh-display);letter-spacing:-.015em}
+.manif__citacao cite{display:block;margin-top:var(--sp-2);font-style:normal;font-size:var(--t-label);letter-spacing:var(--eyebrow-track);text-transform:uppercase;color:var(--pulse)}
+.manif--faixa .manif__citacao cite{color:var(--acento-escuro)}
+.manif__texto p{
+  font-family:var(--f-display);font-size:clamp(1.55rem,1.2rem + 1.6vw,2.4rem);
+  line-height:1.22;letter-spacing:-.015em;
+}
+.manif__texto p+p{margin-top:var(--sp-3)}
+.manif--faixa{background:var(--brand-2);color:var(--on-brand-2)}
+.manif--faixa .eyebrow{color:color-mix(in srgb, var(--on-brand-2) 60%, transparent)}
+
+.trat__lista{list-style:none;padding:0;margin-top:var(--sp-4);display:grid;gap:var(--sp-3)}
+.trat__item{
+  padding:var(--sp-3);border:1px solid var(--line);border-radius:var(--r-lg);
+  background:var(--bg-2);display:flex;flex-direction:column;gap:var(--sp-1);
+}
+.trat__nome{letter-spacing:-.01em}
+.trat__desc{color:var(--ink-soft);line-height:var(--lh-body)}
+.trat__metas{margin-top:auto;padding-top:var(--sp-2);display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+.trat__meta{font-size:var(--t-sm);color:var(--ink-soft)}
+.trat__meta-r{
+  display:block;font-size:var(--t-label);letter-spacing:var(--eyebrow-track);
+  text-transform:uppercase;color:var(--ink-dim);
+}
+.trat--cartoes .trat__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.trat--lista .trat__item{border:none;border-top:1px solid var(--line);border-radius:0;background:none;padding-inline:0}
+.trat--lista .trat__lista{gap:0}
+
+/* Pilha: cartões grandes que grudam e empilham na rolagem (data-pilha,
+   motion.js). As cores alternam entre a marca e misturas claras dela; o
+   texto acompanha cada fundo. */
+.trat--pilha .trat__lista{gap:var(--sp-3)}
+.trat--pilha .trat__item{
+  min-height:15.5rem;padding:var(--sp-4) var(--sp-3);justify-content:flex-end;
+  border:0;box-shadow:0 -14px 34px -22px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+.trat--pilha .trat__nome{font-size:clamp(1.6rem,1.3rem + 1.4vw,2.3rem);line-height:1.05}
+.trat--pilha .trat__item:nth-child(4n+1){background:var(--brand);color:var(--on-brand)}
+.trat--pilha .trat__item:nth-child(4n+2){background:color-mix(in srgb, var(--pulse) 30%, var(--bg-2))}
+.trat--pilha .trat__item:nth-child(4n+3){background:color-mix(in srgb, var(--brand) 18%, var(--bg-2))}
+.trat--pilha .trat__item:nth-child(4n+4){background:var(--brand-2);color:var(--on-brand-2)}
+.trat--pilha .trat__item:nth-child(4n+1) :is(.trat__desc,.trat__meta,.trat__meta-r){color:color-mix(in srgb, var(--on-brand) 76%, transparent)}
+.trat--pilha .trat__item:nth-child(4n+4) :is(.trat__desc,.trat__meta,.trat__meta-r){color:color-mix(in srgb, var(--on-brand-2) 76%, transparent)}
+@media (min-width:64rem){
+  .trat--pilha .trat__item{min-height:19rem;padding:var(--sp-5)}
+  .trat--pilha .trat__lista{max-width:var(--wrap-narrow)}
+}
+
+.nums__lista{list-style:none;padding:0;margin-top:var(--sp-3);display:grid;gap:var(--sp-4)}
+.nums__item{display:flex;flex-direction:column;gap:.15rem}
+.nums__valor{
+  font-family:var(--f-display);line-height:.95;letter-spacing:-.03em;
+  font-size:clamp(2.6rem,1.6rem + 4vw,4.4rem);
+}
+.nums__rotulo{
+  font-size:var(--t-label);letter-spacing:var(--eyebrow-track);
+  text-transform:uppercase;color:var(--ink-dim);
+}
+.nums--faixa .nums__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))}
+
+/* O primeiro número ocupa a linha inteira e vira o elemento visual da seção. */
+.nums--gigante .nums__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))}
+.nums--gigante .nums__item:first-child{grid-column:1 / -1}
+.nums--gigante .nums__item:first-child .nums__valor{
+  font-size:clamp(4.5rem,2rem + 14vw,13rem);
+  color:var(--brand);
+}
+
+.passo__lista{list-style:none;padding:0;margin-top:var(--sp-4);display:grid;gap:var(--sp-4);counter-reset:passo}
+.passo__item{position:relative;padding-left:3.4rem}
+.passo__item::before{
+  content:attr(data-passo);
+  position:absolute;left:0;top:0;
+  display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;
+  border:1px solid var(--line-strong);
+  font-family:var(--f-display);color:var(--brand-2);
+}
+.passo__texto{color:var(--ink-soft);line-height:var(--lh-body);margin-top:.25rem}
+.passo--timeline .passo__item:not(:last-child)::after{
+  content:'';position:absolute;left:1.2rem;top:2.6rem;bottom:calc(var(--sp-4) * -1);
+  width:1px;background:var(--line);
+}
+.passo--numerados .passo__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.passo--numerados .passo__item::after{display:none}
+
+.corpo__lista{list-style:none;padding:0;margin-top:var(--sp-4);display:grid;gap:var(--sp-3)}
+.corpo__item{display:flex;align-items:center;gap:var(--sp-3)}
+.corpo__mono{
+  flex:none;display:grid;place-items:center;
+  width:4.5rem;height:4.5rem;border-radius:50%;
+  background:color-mix(in srgb, var(--brand) 12%, transparent);
+  color:var(--brand-2);
+  font-family:var(--f-display);font-size:1.5rem;letter-spacing:.02em;
+}
+.corpo__dados{display:flex;flex-direction:column;gap:.1rem}
+.corpo__nome{font-family:var(--f-display);font-size:var(--t-h3)}
+.corpo__esp{font-size:var(--t-sm);color:var(--ink-soft)}
+.corpo__reg{
+  font-size:var(--t-label);letter-spacing:var(--eyebrow-track);
+  text-transform:uppercase;color:var(--ink-dim);
+}
+.corpo--monograma .corpo__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.corpo--lista .corpo__mono{width:3rem;height:3rem;font-size:1.1rem}
+
+.faq__lista{margin-top:var(--sp-4);display:grid;gap:0}
+.faq__item{border-top:1px solid var(--line)}
+.faq__item:last-child{border-bottom:1px solid var(--line)}
+.faq__p{
+  cursor:pointer;list-style:none;padding-block:var(--sp-3);
+  font-family:var(--f-display);font-size:var(--t-h3);
+  display:flex;justify-content:space-between;gap:var(--sp-2);align-items:baseline;
+}
+.faq__p::-webkit-details-marker{display:none}
+.faq__p::after{content:'+';color:var(--pulse);font-size:1.4em;line-height:1}
+.faq__item[open] .faq__p::after{content:'–'}
+.faq__r{padding-bottom:var(--sp-3);color:var(--ink-soft);line-height:var(--lh-body);max-width:60ch}
+.faq--colunas .faq__lista{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));
+  column-gap:var(--sp-4);
+}
+
+.unid__lista{list-style:none;padding:0;margin-top:var(--sp-4);display:grid;gap:var(--sp-3)}
+.unid__item{padding:var(--sp-3);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-2)}
+.unid__bairro{margin-bottom:var(--sp-2)}
+.unid__dados{display:grid;gap:.35rem}
+.unid__linha{display:flex;gap:var(--sp-2);justify-content:space-between;align-items:baseline}
+.unid__linha dt{
+  font-size:var(--t-label);letter-spacing:var(--eyebrow-track);
+  text-transform:uppercase;color:var(--ink-dim);flex:none;
+}
+.unid__linha dd{text-align:right;color:var(--ink-soft)}
+.unid__cta{margin-top:var(--sp-4)}
+.unid--cartoes .unid__lista{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.unid--unica .unid__lista{max-width:var(--wrap-narrow)}
+
+.cta{padding-block:var(--sp-4) var(--sp-5);text-align:center}
+.cta .eyebrow{justify-content:center}
+.cta .lead{margin-inline:auto;margin-top:var(--sp-2)}
+.cta__acao{margin-top:var(--sp-4)}
+.cta .btn .ico{margin-right:-.2rem}
+
+.cta--bloco-cheio{padding-block:var(--sp-5);background:var(--brand);color:var(--on-brand)}
+.cta--bloco-cheio .lead{color:inherit;opacity:.82}
+.cta--bloco-cheio .btn{background:var(--on-brand);color:var(--brand)}
+.cta--bloco-cheio .btn:hover{background:var(--on-brand);color:var(--brand-2)}
+
+.cta--faixa{background:var(--bg-2);border-block:1px solid var(--line)}
+
+.rodape{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-4);background:var(--bg-2)}
+.rodape__in{display:flex;flex-direction:column;gap:var(--sp-2)}
+.rodape__marca{font-family:var(--f-display);font-size:var(--t-h3)}
+.rodape__nav{display:flex;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--t-sm)}
+.rodape__nav a{color:var(--ink-soft);text-decoration:none}
+.rodape__nav a:hover{color:var(--brand)}
+.rodape__aviso{max-width:64ch;color:var(--ink-dim)}
+.rodape__autoria{
+  margin-top:var(--sp-2);font-size:var(--t-label);letter-spacing:var(--eyebrow-track);
+  text-transform:uppercase;color:var(--ink-dim);
+}
+@media (min-width:56rem){
+  .rodape--assinatura .rodape__in{flex-direction:row;align-items:baseline;justify-content:space-between}
+  .rodape--assinatura .rodape__autoria{margin-top:0}
+}
+
+:root{--brand:#8A4547;--brand-2:#6B3335;--ink:#2B1C1B;--bg:#FBF5F1;--r:12px;--f-display:'Cormorant Garamond',Georgia,serif;--f-body:'Jost',system-ui,sans-serif;--pulse:#8A4547;--on-brand:#FFFFFF;--on-brand-2:#FFFFFF;--on-pulse:#FFFFFF;--acento-escuro:color-mix(in srgb, #FFFFFF 78%, transparent)}</style>
+</head>
+<body class="no-js">
+
+<header class="hd hd--sticky-cta">
+  <div class="wrap hd__in">
+    <a class="hd__marca" href="#topo">Instituto Patrícia Abrahão</a>
+    <nav class="hd__nav"><a href="#tratamentos">O protocolo</a><a href="#como-funciona">Como funciona</a><a href="#faq">Dúvidas</a><a href="#unidades">Onde fica</a></nav>
+    <a class="btn btn--ghost hd__cta" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site.">WhatsApp</a>
+  </div>
+</header>
+<section class="hero hero--split-motivo hero--tom-claro" id="topo">
+  <canvas class="vivo" aria-hidden="true"></canvas>
+  <div class="grao" aria-hidden="true">
+  <svg width="100%" height="100%" focusable="false">
+    <filter id="grao-f-1"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grao-f-1)"/>
+  </svg>
+</div>
+  <div class="hero__selo" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="hero-selo-circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#hero-selo-circ">CrioEfficace · Asa Sul · Brasília · DF ·  · </textPath></text></svg><span class="hero__selo-miolo">✦</span></div>
+  <div class="wrap hero__in">
+    <div class="hero__grid"><div class="hero__conteudo">
+    <p class="eyebrow" data-reveal>Estética integrativa</p>
+    <h1 data-reveal data-palavras style="--d:60ms">Contorno de abdômen sem cirurgia</h1>
+    <p class="lead" data-reveal style="--d:120ms">Na Asa Sul, gordura localizada, flacidez e lipedema são tratados com o CrioEfficace, o protocolo do instituto: a estratégia sai da avaliação do seu corpo e é acompanhada até o resultado aparecer.</p>
+    <div class="cluster hero__acoes" data-reveal style="--d:200ms">
+      <a class="btn" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site."><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Agendar avaliação</a>
+      <a class="btn btn--ghost" href="#tratamentos">Conhecer o protocolo</a>
+    </div>
+  </div><div class="hero__lado"><aside class="hero__card" data-reveal style="--d:280ms" data-tilt data-glow>
+    <p class="eyebrow">Agendamento</p>
+    <p class="hero__card-titulo">Fale com a recepção agora</p>
+    <a class="btn hero__card-cta" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site."><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Chamar no WhatsApp</a>
+    <dl class="hero__card-lista"><div class="hero__card-linha"><dt>Telefone</dt><dd>(61) 98437-0165</dd></div><div class="hero__card-linha"><dt>Endereço</dt><dd>Asa Sul · Brasília</dd></div></dl>
+  </aside></div></div>
+  </div>
+  <div class="hero__arte" data-parallax="0.08"><svg class="camadas camadas--hero camadas--anima" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax slice" role="presentation" aria-hidden="true" focusable="false"><path d="M 0 44.0 C 88 31.0, 152 57.0, 220.00000000000003 44.0 C 284 31.0, 348 57.0, 400 38.8 L 400 200 L 0 200 Z" style="--i:0"/><path d="M 0 70.0 C 88 58.6, 152 81.4, 220.00000000000003 70.0 C 284 58.6, 348 81.4, 400 65.4 L 400 200 L 0 200 Z" style="--i:1"/><path d="M 0 96.0 C 88 86.2, 152 105.8, 220.00000000000003 96.0 C 284 86.2, 348 105.8, 400 92.1 L 400 200 L 0 200 Z" style="--i:2"/><path d="M 0 122.0 C 88 113.8, 152 130.2, 220.00000000000003 122.0 C 284 113.8, 348 130.2, 400 118.7 L 400 200 L 0 200 Z" style="--i:3"/><path d="M 0 148.0 C 88 141.4, 152 154.6, 220.00000000000003 148.0 C 284 141.4, 348 154.6, 400 145.4 L 400 200 L 0 200 Z" style="--i:4"/></svg></div>
+</section>
+<div class="fita fita--inclinada" aria-hidden="true">
+  <div class="fita__faixa"><div class="fita__trilho"><ul><li>Contorno abdominal</li><li>Gordura localizada</li><li>Flacidez</li><li>Qualidade da pele</li><li>Lipedema</li><li>CrioEfficace</li></ul><ul><li>Contorno abdominal</li><li>Gordura localizada</li><li>Flacidez</li><li>Qualidade da pele</li><li>Lipedema</li><li>CrioEfficace</li></ul></div></div>
+</div>
+<section class="manif manif--faixa section" id="manifesto">
+  <div class="wrap manif__in">
+    <p class="eyebrow" data-reveal>Quem cuida</p>
+    <blockquote class="manif__citacao" data-reveal><p>Dois abdômens nunca pedem o mesmo plano.</p></blockquote>
+    <div class="manif__texto"><p data-acende>A Patrícia é dona do instituto e continua atendendo. Antes de qualquer sessão, ela olha o conjunto: como a pele está, quanto ela cedeu, onde a gordura se acumula e qual contorno faz sentido para aquele corpo.</p><p data-acende>O método já atravessou o oceano. Em 2024 e em 2025 ela atendeu durante a semana de moda de Paris, e hoje forma outras profissionais em turmas de mentoria em Portugal.</p></div>
+  </div>
+</section>
+<section class="trat trat--pilha section" id="tratamentos">
+  <div class="wrap">
+    <h2 data-reveal>O que o CrioEfficace trata</h2>
+    <p class="lead" data-reveal style="--d:80ms">Não é a criolipólise de uma sessão só. É um protocolo do próprio instituto, montado a partir da avaliação e ajustado ao longo do caminho.</p>
+    <ul class="trat__lista" data-pilha><li class="trat__item">
+      <h3 class="trat__nome">Contorno abdominal</h3>
+      <p class="trat__desc">O carro-chefe da casa. A estratégia mira o desenho da cintura e do abdômen, não só a medida na fita.</p>
+      
+    </li><li class="trat__item">
+      <h3 class="trat__nome">Gordura localizada</h3>
+      <p class="trat__desc">Para aquela gordura que fica no mesmo lugar mesmo com treino e alimentação em dia: abdômen, flancos e costas.</p>
+      
+    </li><li class="trat__item">
+      <h3 class="trat__nome">Flacidez e qualidade da pele</h3>
+      <p class="trat__desc">Reduzir volume sem cuidar da pele deixa o resultado pela metade. A firmeza entra no plano desde a primeira avaliação.</p>
+      
+    </li><li class="trat__item">
+      <h3 class="trat__nome">Lipedema</h3>
+      <p class="trat__desc">Cuidado estético para quem convive com lipedema, conduzido por quem se especializou no tema. Caminha junto do acompanhamento médico, sem substituí-lo.</p>
+      
+    </li></ul>
+  </div>
+</section>
+<section class="nums nums--gigante section" id="numeros">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Trajetória</p>
+    <ul class="nums__lista"><li class="nums__item" data-reveal style="--d:0ms">
+      <span class="nums__valor" data-count="2">2</span>
+      <span class="nums__rotulo">temporadas atendendo na Paris Fashion Week, em 2024 e 2025</span>
+    </li><li class="nums__item" data-reveal style="--d:90ms">
+      <span class="nums__valor" data-count="10">10 mil</span>
+      <span class="nums__rotulo">pessoas acompanham os bastidores do instituto no Instagram</span>
+    </li></ul>
+  </div>
+</section>
+<section class="passo passo--timeline section" id="como-funciona">
+  <div class="wrap">
+    <h2 data-reveal>Como funciona</h2>
+    <p class="lead" data-reveal style="--d:80ms">Resultado de contorno é gradual. Você sabe o que esperar de cada etapa antes de começar.</p>
+    <ol class="passo__lista"><li class="passo__item" data-passo="1" data-reveal style="--d:0ms">
+      <h3 class="passo__titulo">Conversa pelo WhatsApp</h3>
+      <p class="passo__texto">Você conta o que incomoda e tira as primeiras dúvidas. A avaliação é marcada por ali.</p>
+    </li><li class="passo__item" data-passo="2" data-reveal style="--d:80ms">
+      <h3 class="passo__titulo">Avaliação do corpo</h3>
+      <p class="passo__texto">Qualidade da pele, grau de flacidez, contorno e distribuição da gordura. É daqui que sai a estratégia.</p>
+    </li><li class="passo__item" data-passo="3" data-reveal style="--d:160ms">
+      <h3 class="passo__titulo">Plano por etapas</h3>
+      <p class="passo__texto">O protocolo é montado para o seu caso, com a ordem das sessões e o tempo realista até o resultado.</p>
+    </li><li class="passo__item" data-passo="4" data-reveal style="--d:240ms">
+      <h3 class="passo__titulo">Acompanhamento</h3>
+      <p class="passo__texto">A evolução é revista ao longo do processo. Treino e alimentação contam, e entram na conversa.</p>
+    </li></ol>
+  </div>
+</section>
+<section class="corpo corpo--lista section" id="equipe">
+  <div class="wrap">
+    <h2 data-reveal>Quem atende</h2>
+    <ul class="corpo__lista"><li class="corpo__item" data-reveal style="--d:0ms">
+      <span class="corpo__mono" aria-hidden="true">PA</span>
+      <span class="corpo__dados">
+        <span class="corpo__nome">Patrícia Abrahão</span>
+        <span class="corpo__esp">Estética integrativa · contorno corporal e lipedema · mentora de profissionais</span>
+        
+      </span>
+    </li></ul>
+  </div>
+</section>
+<section class="faq faq--acordeao section" id="faq">
+  <div class="wrap wrap--narrow">
+    <h2 data-reveal>Dúvidas frequentes</h2>
+    <div class="faq__lista"><details class="faq__item" data-reveal style="--d:0ms">
+      <summary class="faq__p">CrioEfficace é a mesma coisa que criolipólise?</summary>
+      <div class="faq__r">Não. É um protocolo próprio do instituto, que parte da avaliação da pele, da flacidez e de onde a gordura se concentra. A combinação e o número de sessões mudam de pessoa para pessoa.</div>
+    </details><details class="faq__item" data-reveal style="--d:50ms">
+      <summary class="faq__p">Precisa de cirurgia ou agulha?</summary>
+      <div class="faq__r">Não. O protocolo é não invasivo: você sai da sessão e segue o seu dia.</div>
+    </details><details class="faq__item" data-reveal style="--d:100ms">
+      <summary class="faq__p">Em quanto tempo aparece o resultado?</summary>
+      <div class="faq__r">O processo é gradual e depende do seu corpo e do plano montado. A previsão do seu caso sai na avaliação.</div>
+    </details><details class="faq__item" data-reveal style="--d:150ms">
+      <summary class="faq__p">Quem tem lipedema pode fazer?</summary>
+      <div class="faq__r">Pode, e é uma das especialidades da Patrícia. O cuidado estético complementa o acompanhamento médico do lipedema, não o substitui.</div>
+    </details><details class="faq__item" data-reveal style="--d:200ms">
+      <summary class="faq__p">Preciso mudar treino e alimentação?</summary>
+      <div class="faq__r">Ajuda muito. Os melhores resultados do instituto vêm de quem combina o protocolo com exercício regular e alimentação cuidada.</div>
+    </details></div>
+  </div>
+</section>
+<section class="unid unid--unica section" id="unidades">
+  <div class="wrap">
+    <h2 data-reveal>Onde fica</h2>
+    <ul class="unid__lista"><li class="unid__item" data-reveal style="--d:0ms">
+      <h3 class="unid__bairro">Asa Sul · Brasília</h3>
+      <dl class="unid__dados"><div class="unid__linha"><dt>Endereço</dt><dd>SAUS Quadra 4, Bloco A · Ed. Victoria Office Tower, salas 337 a 339</dd></div><div class="unid__linha"><dt>Telefone</dt><dd>(61) 98437-0165</dd></div><div class="unid__linha"><dt>Horário</dt><dd>Atendimento com hora marcada</dd></div></dl>
+    </li></ul>
+    <p class="unid__cta">
+      <a class="btn" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site.">Combinar um horário</a>
+    </p>
+  </div>
+</section>
+<section class="cta cta--bloco-cheio" id="contato" data-glow>
+  <div class="wrap wrap--narrow" data-reveal>
+    
+    <h2>Comece pela avaliação</h2>
+    <p class="lead">Conte pelo WhatsApp o que mais te incomoda: abdômen, flacidez ou lipedema. A avaliação define por onde começar.</p>
+    <p class="cta__acao"><a class="btn" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site."><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Conversar no WhatsApp</a></p>
+  </div>
+</section>
+<footer class="rodape rodape--completo">
+  <div class="wrap rodape__in">
+    <p class="rodape__marca">Instituto Patrícia Abrahão · 2026</p>
+    <nav class="rodape__nav"><a href="https://www.instagram.com/institutopatriciaabrahao/">Instagram</a><a href="https://wa.me/5561984370165">WhatsApp</a></nav>
+    <p class="rodape__aviso small">Resultados variam de pessoa para pessoa e dependem de avaliação individual. O conteúdo desta página é informativo e não substitui consulta médica.</p>
+    <p class="rodape__autoria">Proposta · Conexxio</p>
+  </div>
+</footer>
+<div class="barra-zap"><a class="btn" href="https://wa.me/5561984370165?text=Ol%C3%A1!%20Vim%20pelo%20site."><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Agendar avaliação</a></div>
+<script>/* Sistema de movimento do kit. Roda em toda proposta.
+   Só transform e opacity — tudo no compositor, nada de layout. */
+;(() => {
+  const doc = document
+  const corpo = doc.body
+  corpo.classList.remove('no-js')
+  corpo.classList.add('js')
+
+  // Quebra o texto de um elemento em <span class="classe"> por palavra,
+  // devolvendo os espaços como nós de texto: o textContent final é idêntico
+  // ao original, e leitor de tela lê a frase inteira.
+  const quebrar = (el, classe) => {
+    const partes = el.textContent.split(/(\s+)/)
+    el.textContent = ''
+    const spans = []
+    for (const parte of partes) {
+      if (!parte) continue
+      if (/^\s+$/.test(parte)) {
+        el.append(parte)
+        continue
+      }
+      const s = doc.createElement('span')
+      s.className = classe
+      s.style.setProperty('--i', spans.length)
+      s.textContent = parte
+      el.append(s)
+      spans.push(s)
+    }
+    return spans
+  }
+
+  const limitar = (v) => Math.min(1, Math.max(0, v))
+
+  // A troca de classe acima é síncrona e imediata — precisa acontecer antes
+  // de qualquer coisa, inclusive do early-return sob movimento reduzido. O
+  // resto (todo o querySelectorAll de atributos data-*) espera o documento
+  // terminar de parsear: o script é sempre o último nó do <body>, então
+  // qualquer conteúdo real de seção já existe nesse ponto de qualquer jeito;
+  // esperar só garante que isso vale mesmo quando o body é montado de forma
+  // incremental (como em teste, via injeção após o próprio <script>).
+  const iniciar = () => {
+    const parado = matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    /* Texto que acende palavra por palavra conforme a rolagem. Parado, já
+       nasce todo aceso. */
+    const acendiveis = [...doc.querySelectorAll('[data-acende]')].map((el) => ({
+      el,
+      palavras: quebrar(el, 'p'),
+    }))
+
+    /* Barra de WhatsApp do celular: aparece depois do hero, some quando o
+       bloco de contato está na tela. É função, não enfeite — roda também
+       com movimento reduzido (o CSS só tira a transição). */
+    const barra = doc.querySelector('.barra-zap')
+    const topo = doc.getElementById('topo')
+    const contato = doc.getElementById('contato')
+
+    const pilhas = [...doc.querySelectorAll('[data-pilha]')].map((el) => {
+      const cartoes = [...el.children]
+      cartoes.forEach((c, n) => c.style.setProperty('--n', n))
+      return cartoes
+    })
+
+    let pendente = false
+    const quadro = () => {
+      pendente = false
+      const h = innerHeight
+      if (barra) {
+        let on = topo ? topo.getBoundingClientRect().bottom < h * 0.4 : scrollY > h * 0.6
+        if (contato) on = on && contato.getBoundingClientRect().top > h * 0.95
+        barra.classList.toggle('on', on)
+      }
+      if (parado) return
+      // No fim da página não há mais rolagem para acender o resto: o que
+      // estiver na tela acende inteiro.
+      const fim = scrollY + h >= doc.documentElement.scrollHeight - 4
+      for (const { el, palavras } of acendiveis) {
+        const r = el.getBoundingClientRect()
+        const prog = fim && r.top < h ? 1 : limitar((h * 0.85 - r.top) / (r.height + h * 0.35))
+        const acesas = Math.ceil(prog * palavras.length)
+        palavras.forEach((p, i) => p.classList.toggle('on', i < acesas))
+      }
+      for (const cartoes of pilhas) {
+        cartoes.forEach((c, i) => {
+          const prox = cartoes[i + 1]
+          if (!prox) return
+          const d = prox.getBoundingClientRect().top - c.getBoundingClientRect().top
+          const k = limitar(1 - d / c.offsetHeight)
+          c.style.transform = k ? `scale(${(1 - k * 0.06).toFixed(3)})` : ''
+          c.style.filter = k ? `brightness(${(1 - k * 0.15).toFixed(3)})` : ''
+        })
+      }
+    }
+    if (barra || acendiveis.length || pilhas.length) {
+      addEventListener(
+        'scroll',
+        () => {
+          if (pendente) return
+          pendente = true
+          requestAnimationFrame(quadro)
+        },
+        { passive: true },
+      )
+      addEventListener('resize', quadro, { passive: true })
+      quadro()
+    }
+
+    if (parado) {
+      doc.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'))
+      for (const { palavras } of acendiveis) palavras.forEach((p) => p.classList.add('on'))
+      return
+    }
+
+    /* Título que sobe palavra por palavra. */
+    doc.querySelectorAll('[data-palavras]').forEach((el) => quebrar(el, 'w'))
+
+    /* Reveal por scroll. */
+    const obs = new IntersectionObserver(
+      (entradas) => {
+        for (const e of entradas) {
+          if (!e.isIntersecting) continue
+          e.target.classList.add('is-in')
+          obs.unobserve(e.target)
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
+    )
+    doc.querySelectorAll('[data-reveal]').forEach((el) => obs.observe(el))
+
+    /* Contadores. O texto final já está no HTML — a contagem é enfeite por
+       cima, nunca a fonte do número. */
+    const fmt = new Intl.NumberFormat('pt-BR')
+    const contar = (el) => {
+      const alvo = Number(el.dataset.count)
+      if (!Number.isFinite(alvo)) return
+      const final = el.textContent
+      const dur = 1400
+      const t0 = performance.now()
+      const passo = (t) => {
+        const p = Math.min(1, (t - t0) / dur)
+        const eased = 1 - Math.pow(1 - p, 3)
+        if (p < 1) {
+          el.textContent = fmt.format(Math.round(alvo * eased))
+          requestAnimationFrame(passo)
+        } else {
+          el.textContent = final
+        }
+      }
+      requestAnimationFrame(passo)
+    }
+    const obsCount = new IntersectionObserver(
+      (entradas) => {
+        for (const e of entradas) {
+          if (!e.isIntersecting) continue
+          contar(e.target)
+          obsCount.unobserve(e.target)
+        }
+      },
+      { threshold: 0.6 },
+    )
+    doc.querySelectorAll('[data-count]').forEach((el) => obsCount.observe(el))
+
+    /* Parallax. */
+    const camadas = [...doc.querySelectorAll('[data-parallax]')]
+    if (camadas.length) {
+      let pendenteP = false
+      const mover = () => {
+        pendenteP = false
+        const meio = innerHeight / 2
+        for (const el of camadas) {
+          const r = el.getBoundingClientRect()
+          const d = (r.top + r.height / 2 - meio) * Number(el.dataset.parallax || 0.2)
+          el.style.transform = `translate3d(0, ${(-d).toFixed(1)}px, 0)`
+        }
+      }
+      addEventListener(
+        'scroll',
+        () => {
+          if (pendenteP) return
+          pendenteP = true
+          requestAnimationFrame(mover)
+        },
+        { passive: true },
+      )
+      mover()
+    }
+
+    /* Tilt e brilho seguem o ponteiro — só existem onde há ponteiro de
+       verdade. No toque, o wow vem da rolagem, não daqui. */
+    if (!matchMedia('(hover: hover)').matches) return
+
+    doc.querySelectorAll('[data-tilt]').forEach((el) => {
+      el.addEventListener('pointermove', (ev) => {
+        const r = el.getBoundingClientRect()
+        const x = (ev.clientX - r.left) / r.width - 0.5
+        const y = (ev.clientY - r.top) / r.height - 0.5
+        el.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg)`
+      })
+      el.addEventListener('pointerleave', () => {
+        el.style.transform = ''
+      })
+    })
+
+    doc.querySelectorAll('[data-glow]').forEach((el) => {
+      el.addEventListener('pointermove', (ev) => {
+        const r = el.getBoundingClientRect()
+        el.style.setProperty('--gx', `${ev.clientX - r.left}px`)
+        el.style.setProperty('--gy', `${ev.clientY - r.top}px`)
+      })
+    })
+  }
+
+  if (doc.readyState === 'loading') {
+    doc.addEventListener('DOMContentLoaded', iniciar)
+  } else {
+    iniciar()
+  }
+})()
+
+/* Fundo vivo do hero (wow fundo-vivo). WebGL num quad só; as cores vêm das
+   variáveis --vivo-* do CSS. Pausa fora da tela, um quadro só sob movimento
+   reduzido, fundo estático sem WebGL. */
+;(() => {
+  const tela = document.querySelector('.vivo')
+  if (!tela) return
+  const hero = tela.closest('.hero')
+  const gl = tela.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' })
+  if (!gl) {
+    tela.remove()
+    hero.classList.add('hero--estatico')
+    return
+  }
+
+  // Resolve a cor computada de uma variável. color-mix() serializa como
+  // color(srgb r g b) em 0–1; cor simples, como rgb() em 0–255.
+  const sonda = document.createElement('span')
+  sonda.style.display = 'none'
+  hero.append(sonda)
+  const cor = (nome) => {
+    sonda.style.color = `var(${nome})`
+    const c = getComputedStyle(sonda).color
+    const n = (c.match(/[\d.]+/g) || []).map(Number)
+    return c.startsWith('color(') ? n.slice(0, 3) : n.slice(0, 3).map((v) => v / 255)
+  }
+
+  const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'
+  const fs = `precision mediump float;
+uniform vec2 r;uniform float t;uniform vec2 m;uniform vec3 bg,c1,c2,c3;
+float b(vec2 p,vec2 c,float s){vec2 d=p-c;return exp(-dot(d,d)/s);}
+void main(){
+  vec2 uv=gl_FragCoord.xy/r;float a=r.x/r.y;vec2 p=vec2(uv.x*a,uv.y);
+  p+=.06*vec2(sin(p.y*4.+t*.7),cos(p.x*4.+t*.6));
+  vec3 col=bg;
+  col=mix(col,c1,b(p,vec2(a*(.25+.2*sin(t*.31)),.78+.08*cos(t*.43)),.10));
+  col=mix(col,c2,b(p,vec2(a*(.85+.12*cos(t*.27)),.52+.16*sin(t*.22)),.09));
+  col=mix(col,c1,.6*b(p,vec2(a*(.5+.3*cos(t*.19)),.30+.1*sin(t*.37)),.07));
+  col=mix(col,c3,.75*b(p,vec2(m.x*a,m.y),.035));
+  float g=fract(sin(dot(gl_FragCoord.xy+fract(t)*91.,vec2(12.9898,78.233)))*43758.5453);
+  col+=(g-.5)*.05;
+  gl_FragColor=vec4(col,1.);
+}`
+  const sombra = (tipo, src) => {
+    const s = gl.createShader(tipo)
+    gl.shaderSource(s, src)
+    gl.compileShader(s)
+    return s
+  }
+  const prog = gl.createProgram()
+  gl.attachShader(prog, sombra(gl.VERTEX_SHADER, vs))
+  gl.attachShader(prog, sombra(gl.FRAGMENT_SHADER, fs))
+  gl.linkProgram(prog)
+  gl.useProgram(prog)
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
+  const loc = gl.getAttribLocation(prog, 'p')
+  gl.enableVertexAttribArray(loc)
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0)
+  const U = (n) => gl.getUniformLocation(prog, n)
+  const cores = () => {
+    gl.uniform3fv(U('bg'), cor('--vivo-bg'))
+    gl.uniform3fv(U('c1'), cor('--vivo-1'))
+    gl.uniform3fv(U('c2'), cor('--vivo-2'))
+    gl.uniform3fv(U('c3'), cor('--vivo-3'))
+  }
+
+  // Resolução reduzida: são manchas desfocadas, não precisam de cada pixel.
+  const escala = Math.min(devicePixelRatio || 1, 1.5) * 0.6
+  const ajustar = () => {
+    tela.width = Math.max(1, Math.round(hero.clientWidth * escala))
+    tela.height = Math.max(1, Math.round(hero.clientHeight * escala))
+    gl.viewport(0, 0, tela.width, tela.height)
+  }
+  ajustar()
+  cores()
+
+  let mx = 0.72, my = 0.6, tx = mx, ty = my, livre = true
+  const seguir = (ev) => {
+    const r = hero.getBoundingClientRect()
+    tx = (ev.clientX - r.left) / r.width
+    ty = 1 - (ev.clientY - r.top) / r.height
+    livre = false
+  }
+  hero.addEventListener('pointermove', seguir, { passive: true })
+  hero.addEventListener('pointerdown', seguir, { passive: true })
+  hero.addEventListener('pointerleave', () => { livre = true }, { passive: true })
+
+  const t0 = performance.now()
+  const pintar = (agora) => {
+    const t = (agora - t0) / 1000
+    if (livre) {
+      tx = 0.62 + 0.24 * Math.sin(t * 0.4)
+      ty = 0.6 + 0.15 * Math.cos(t * 0.33)
+    }
+    mx += (tx - mx) * 0.06
+    my += (ty - my) * 0.06
+    gl.uniform2f(U('r'), tela.width, tela.height)
+    gl.uniform1f(U('t'), t)
+    gl.uniform2f(U('m'), mx, my)
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+  }
+
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    pintar(t0 + 4000)
+    return
+  }
+
+  let visivel = true
+  let pedido = 0
+  const laco = (agora) => {
+    pintar(agora)
+    pedido = visivel ? requestAnimationFrame(laco) : 0
+  }
+  new IntersectionObserver(([e]) => {
+    visivel = e.isIntersecting
+    if (visivel && !pedido) pedido = requestAnimationFrame(laco)
+  }).observe(hero)
+  addEventListener('resize', ajustar, { passive: true })
+  pedido = requestAnimationFrame(laco)
+})()
+</script>
+</body>
+</html>
